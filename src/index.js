@@ -4,9 +4,11 @@ import hljs from 'highlight.js';
 import 'highlight.js/styles/agate.css';
 import 'normalize.css/normalize.css'
 
-console.log(hljs)
 
 document.addEventListener('DOMContentLoaded', () => {
+  hljs.configure({
+    languages: ['javascript']
+  })
   hljs.highlightAll();
 });
 
@@ -16,16 +18,16 @@ const conversationExamples = [{
 let result;
 
 result = '3' + 2; 
-console.log(result) // "32"
+output: ${'3' + 2}
 
 result = '3' + true; 
-console.log(result); // "3true"
+output: ${'3' + true}
 
 result = '3' + undefined; 
-console.log(result); // "3undefined"
+output: ${'3' + undefined}
 
 result = '3' + null; 
-console.log(result); // "3null"
+output: ${'3' + null}
   `
 },
   {
@@ -34,16 +36,16 @@ console.log(result); // "3null"
 let result;
 
 result = '4' - '2'; 
-console.log(result); // 2
+output: ${'4' - '2'}
 
 result = '4' - 2;
-console.log(result); // 2
+output: ${'4' - 2}
 
 result = '4' * 2;
-console.log(result); // 8
+output: ${'4' * 2}
 
 result = '4' / 2;
-console.log(result); // 2
+output: ${'4' / 2}
     `
   },
   {
@@ -52,10 +54,10 @@ console.log(result); // 2
 let result;
 
 result = 'hello' - 'world';
-console.log(result); // NaN
+output: ${'hello' - 'world'}
 
 result = '4' - 'hello';
-console.log(result); // NaN    
+output: ${'4' - 'hello'}   
     `
   },
   {
@@ -64,13 +66,13 @@ console.log(result); // NaN
 let result;
 
 result = '4' - true;
-console.log(result); // 3
+output: ${'4' - true}
 
 result = 4 + true;
-console.log(result); // 5
+output: ${4 + true}
 
 result = 4 + false;
-console.log(result); // 4
+output: ${4 + false}
     `
   },
   {
@@ -79,10 +81,10 @@ console.log(result); // 4
 let result;
 
 result = 4 + null;
-console.log(result);  // 4
+output: ${4 + null}
 
 result = 4 - null;
-console.log(result);  // 4    
+output: ${4 - null}  
     `
   },
   {
@@ -91,10 +93,10 @@ console.log(result);  // 4
 let result;
 
 result = 4 + null;
-console.log(result);  // 4
+output: ${4 + null}
 
 result = 4 - null;
-console.log(result);  // 4
+output: ${4 - null}
     `
   },
   {
@@ -104,32 +106,32 @@ let result;
 
 // string to number
 result = Number('324');
-console.log(result); // 324
+output: ${Number('324')}
 
 result = Number('324e-1')  
-console.log(result); // 32.4
+output: ${Number('324e-1')}
 
 // boolean to number
 result = Number(true);
-console.log(result); // 1
+output: ${Number(true)}
 
 result = Number(false);
-console.log(result); // 0
+output: ${Number(false)}
 
 result = Number(null);
-console.log(result);  // 0
+output: ${Number(null)}
 
 result = Number(' ')
-console.log(result);  // 0
+output: ${Number(' ')}
 
 result = Number('hello');
-console.log(result); // NaN
+output: ${Number('hello')}
 
 result = Number(undefined);
-console.log(result); // NaN
+output: ${Number(undefined)}
 
 result = Number(NaN);
-console.log(result); // NaN
+output: ${Number(NaN)}
     `
   },
   {
@@ -138,33 +140,33 @@ console.log(result); // NaN
 let result;
 
 result = String(324);
-console.log(result);  // "324"
+output: ${String(324)}
 
 result = String(2 + 4);
-console.log(result); // "6"
+output: ${String(2 + 4)}
 
 //other data types to string
 result = String(null);
-console.log(result); // "null"
+output: ${String(null)}
 
 result = String(undefined);
-console.log(result); // "undefined"
+output: ${String(undefined)}
 
 result = String(NaN);
-console.log(result); // "NaN"
+output: ${String(NaN)}
 
 result = String(true);
-console.log(result); // "true"
+output: ${String(true)}
 
 result = String(false);
-console.log(result); // "false"
+output: ${String(false)}
 
 // using toString()
 result = (324).toString();
-console.log(result); // "324"
+output: ${(324).toString()}
 
 result = true.toString();
-console.log(result); // "true"
+output: ${true.toString()}
     `
   },
   {
@@ -173,28 +175,28 @@ console.log(result); // "true"
 let result;
 
 result = Boolean('');
-console.log(result); // false
+output: ${Boolean('')}
 
 result = Boolean(0);
-console.log(result); // false
+output: ${Boolean(0)}
 
 result = Boolean(undefined);
-console.log(result); // false
+output: ${Boolean(undefined)}
 
 result = Boolean(null);
-console.log(result); // false
+output: ${Boolean(null)}
 
 result = Boolean(NaN);
-console.log(result); // false
+output: ${Boolean(NaN)}
 
 result = Boolean(324);
-console.log(result); // true
+output: ${Boolean(324)}
 
 result = Boolean('hello');
-console.log(result); // true
+output: ${Boolean('hello')}
 
 result = Boolean(' ');
-console.log(result); // true    
+output: ${Boolean(' ')}  
     `
   }
 
