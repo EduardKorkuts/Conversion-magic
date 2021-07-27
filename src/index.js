@@ -204,18 +204,18 @@ output: ${Boolean(' ')}
 ]
 
 function appendExamples(arr) {
-  for (let i = 0; i < arr.length; i++) {
+  arr.forEach(e => {
     let block = document.createElement('div')
     block.classList.add('example')
-    block.innerHTML = `<h3 class="example__heading">${arr[i].name}</h3>
+    block.innerHTML = `<h3 class="example__heading">${e.name}</h3>
     <pre class="code-wrapper">
     <code class="code">
-    ${arr[i].text}
+    ${e.text}
 </code>
 </pre>
 `
     document.querySelector('.container').append(block)
-  }
+  })
 }
 
 appendExamples(conversationExamples)
